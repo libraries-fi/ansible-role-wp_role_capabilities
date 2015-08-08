@@ -1,0 +1,11 @@
+---
+# tasks file for kifi.wp_role_capabilities
+
+- name: Remove Wordpress role capabilities
+  shell: >
+    /usr/local/bin/wp --allow-root
+    cap remove {{item.key}} {{item.value | join(" ")}}
+    chdir={{wordpress_webroot}}
+  with_dict: wp_role_capabilities_removed
+  register: result
+  changed_when: result.stdout.find('Removed 0 capabilities') == -1

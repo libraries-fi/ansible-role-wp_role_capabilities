@@ -1,0 +1,5 @@
+---
+# defaults file for kifi.wp_role_capabilities
+#wp_role_capabilities_added: []
+wp_role_capabilities_removed:
+  administrator: [ update_plugins, update_themes, update_core ]
